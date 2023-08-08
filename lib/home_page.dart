@@ -1,4 +1,6 @@
-import 'package:carousel_slider/carousel_slider.dart';
+import 'package:Kflix/widgets/movieSlider.dart';
+import 'package:Kflix/widgets/trendinSlider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,31 +41,7 @@ class _MovieExState extends State<MovieEx> {
             const SizedBox(
               height: 32,
             ),
-            SizedBox(
-              width: double.infinity,
-              child: CarouselSlider.builder(
-                itemCount: 10,
-                options: CarouselOptions(
-                  height: 300,
-                  autoPlay: true,
-                  viewportFraction: 0.55,
-                  enlargeCenterPage: true,
-                  pageSnapping: true,
-                  autoPlayCurve: Curves.easeInCubic,
-                  autoPlayAnimationDuration: const Duration(seconds: 1),
-                ),
-                itemBuilder: (context, itemIndex, pageViewIndex) {
-                  return ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Container(
-                      height: 300,
-                      width: 200,
-                      color: Color.fromARGB(255, 6, 5, 6),
-                    ),
-                  );
-                },
-              ),
-            ),
+            const TrendingSlider(),
             const SizedBox(
               height: 24,
             ),
@@ -76,60 +54,20 @@ class _MovieExState extends State<MovieEx> {
             const SizedBox(
               height: 32,
             ),
-            SizedBox(
-              height: 190,
-              width: double.infinity,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Container(
-                        color: Color.fromARGB(255, 9, 255, 181),
-                        height: 250,
-                        width: 120,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            const MovieSlider(),
             const SizedBox(
               height: 24,
             ),
             Text(
               'Top Faded Movies',
-              style: GoogleFonts.aBeeZee(
+              style: GoogleFonts.akayaTelivigala(
                 fontSize: 25,
               ),
             ),
             const SizedBox(
               height: 32,
             ),
-            SizedBox(
-              height: 190,
-              width: double.infinity,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(8),
-                      child: Container(
-                        color: Color.fromARGB(255, 9, 255, 181),
-                        height: 250,
-                        width: 120,
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+            const MovieSlider(),
           ]),
         ),
       ),
